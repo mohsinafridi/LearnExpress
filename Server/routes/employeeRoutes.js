@@ -1,17 +1,13 @@
 const express = require("express");
- const { getAllEmployees } = require("../controller/employeeController");
- 
 const router = express.Router();
+const employeeController = require('../controllers/employeeController');
+  
+router.post('/', employeeController.addEmployee);
+router.get('/', employeeController.getAllEmployees);
+router.get('/:id', employeeController.getEmployeeById);
+router.put('/:id', employeeController.updateEmployee);
+router.delete('/:id', employeeController.deleteEmployee);
 
-
-// router.get('/blog', (req, res) => {
-//     res.send('Hello Blog, My name is Devtamin')
-// })
-
-//router.route("/employees").get(getAllEmployees);
-//router.route("/:id").get(getBlogById).put(updateBlog).delete(deleteBlog);
- 
 module.exports = router;
-
 
 // https://blog.appsignal.com/2022/08/17/build-a-crud-app-with-nodejs-and-mongodb.html
